@@ -9,7 +9,7 @@ EKS Cluster ---Fluent Bit---> AWS Opensearch
 ## Set the necessary environment variables
 ```bash
 # Name of our Amazon OpenSearch cluster
-export ES_DOMAIN_NAME="cloudacode-es"
+export ES_DOMAIN_NAME="cdit-es"
 
 # OpenSearch version
 export ES_VERSION="OpenSearch_2.13"
