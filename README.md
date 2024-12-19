@@ -15,7 +15,7 @@ export ES_DOMAIN_NAME="cdit-es"
 export ES_VERSION="OpenSearch_2.13"
 
 # AWS region and account ID
-export AWS_REGION="ap-northeast-2"
+export AWS_REGION="ap-south-1"
 export ACCOUNT_ID=$(aws sts get-caller-identity | jq .Account -r)
 
 # OpenSearch Dashboards admin user credentials
