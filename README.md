@@ -20,11 +20,12 @@ export ACCOUNT_ID=$(aws sts get-caller-identity | jq .Account -r)
 
 # OpenSearch Dashboards admin user credentials
 export ES_DOMAIN_USER="cloudacode"
-export ES_DOMAIN_PASSWORD=$(LC_ALL=C echo "$(tr -dc 'A-Z' < /dev/urandom | head -c1)$(tr -dc 'a-z' < /dev/urandom | head -c1)$(tr -dc '0-9' < /dev/urandom | head -c1)$(tr -dc '!@#$%^&*()_+{}|:<>?=' < /dev/urandom | head -c1)$(tr -dc 'A-Za-z0-9!@#$%^&*()_+{}|:<>?=' < /dev/urandom | head -c8)" | fold -w1 | shuf | tr -d '\n')
+export ES_DOMAIN_PASSWORD="Diehard_1234"
 ```
 
 ## Create a OpenSearch Cluster Domain(Public facing)
 ```bash
+
 # Clone the repository from GitHub
 git clone https://github.com/cloudacode/aws-eks-logging-to-opensearch.git
 
