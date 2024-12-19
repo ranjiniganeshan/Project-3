@@ -6,17 +6,17 @@ kind: ClusterConfig
 
 metadata:
   name: eks-cluster
-  region: ap-northeast-2
+  region: ap-south-1
   version: "1.29"
 
 vpc:
   id: "vpc-0dd338ecf29863c55"
   subnets:
     public:
-      ap-northeast-2a:
-          id: "subnet-0b2512f8c6ae9bf30"
-      ap-northeast-2b:
-          id: "subnet-08cb9a2ed60394ce3"
+      ap-south-1b:
+          id: "subnet-0eac95c017d896556"
+      ap-south-1c:
+          id: "subnet-053d2e8122b54debf"
 
 iam:
   withOIDC: true
@@ -27,7 +27,7 @@ managedNodeGroups:
   iam:
     withAddonPolicies:
       albIngress: true
-  instanceTypes: ["c4.large","c5.large"]
+  instanceTypes: ["t2.small","t3.large"]
   spot: true
 
 cloudWatch:
