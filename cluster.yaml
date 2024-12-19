@@ -1,0 +1,35 @@
+# An example of ClusterConfig object using an existing VPC:
+# You can find more examples in https://github.com/eksctl-io/eksctl/tree/main/examples
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: eks-cluster
+  region: ap-northeast-2
+  version: "1.29"
+
+vpc:
+  id: "vpc-0dd338ecf29863c55"
+  subnets:
+    public:
+      ap-northeast-2a:
+          id: "subnet-0b2512f8c6ae9bf30"
+      ap-northeast-2b:
+          id: "subnet-08cb9a2ed60394ce3"
+
+iam:
+  withOIDC: true
+
+managedNodeGroups:
+- name: cloud-eks-workers
+  desiredCapacity: 1
+  iam:
+    withAddonPolicies:
+      albIngress: true
+  instanceTypes: ["c4.large","c5.large"]
+  spot: true
+
+cloudWatch:
+    clusterLogging:
+        enableTypes: ["audit", "authenticator", "controllerManager"]
