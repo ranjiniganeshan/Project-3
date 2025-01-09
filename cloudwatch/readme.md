@@ -32,6 +32,6 @@ step 5: kubectl get pods -n amazon-cloudwatch
 
 Output: verify the metrics in aws console-> cloudwatch-> containerinsights
 
-![Uploading Screenshot 2025-01-09 at 8.43.16 PM.png…]()
+![cloudwatch dashboard](path-to-image/image-name.png)
 
 
