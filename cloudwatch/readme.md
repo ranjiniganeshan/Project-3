@@ -29,3 +29,8 @@ kubectl apply -f https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch
 
 
 step 5: kubectl get pods -n amazon-cloudwatch
+
+Output: verify the metrics in aws console-> cloudwatch-> containerinsights
+
+
+
