@@ -32,6 +32,6 @@ step 5: kubectl get pods -n amazon-cloudwatch
 
 Output: verify the metrics in aws console-> cloudwatch-> containerinsights
 
-![cloudwatch dashboard](cloudwatch/screen.png)
+![cloudwatch dashboard](screen.png)
 
 
