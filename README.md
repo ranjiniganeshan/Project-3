@@ -43,7 +43,7 @@ aws opensearch describe-domain --domain-name ${ES_DOMAIN_NAME} --query 'DomainSt
 aws opensearch describe-domain --domain-name ${ES_DOMAIN_NAME} --query 'DomainStatus.Endpoint'
 
 # Export the endpoint of the OpenSearch domain as an environment variable
-export ES_ENDPOINT="search-cloudacode-es-hfcixybx5tbsifxfbdffbcshxy.ap-northeast-2.es.amazonaws.com"```
+export ES_ENDPOINT="search-cdit-es-c4xjhbkgqbgbw7hb45mjnos5iu.us-east-1.es.amazonaws.com"```
 ```
 
 ## Create an EKS Cluster (if you don't have one yet)
@@ -57,6 +57,8 @@ CLUSTER_NAME=$(cat eksctl.yaml | yq .metadata.name)
 
 # Confirm the IAM OIDC identity provider for your cluster has been enabled
 aws eks describe-cluster --name $CLUSTER_NAME --query "cluster.identity.oidc.issuer" --output text
+
+aws eks describe-cluster --name my-eks-cluster --query "cluster.identity.oidc.issuer" --output text
 ```
 If you can't retrieve your EKS cluster's IAM OIDC identity provider, please see https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html document to enable it properly
 
@@ -104,8 +106,8 @@ helm repo add eks https://aws.github.io/eks-charts
 helm upgrade --install fluent-bit eks/aws-for-fluent-bit \
   --namespace kube-system --set cloudWatchLogs.enabled=false \
   --set serviceAccount.create=false --set serviceAccount.name=fluent-bit \
-  --set opensearch.enabled=true --set opensearch.awsRegion=ap-northeast-2 \
-  --set opensearch.host=search-cloudacode-es-xxx.ap-northeast-2.es.amazonaws.com \
+  --set opensearch.enabled=true --set opensearch.awsRegion=us-east-1\
+  --set opensearch.host=search-cdit-es-c4xjhbkgqbgbw7hb45mjnos5iu.us-east-1.es.amazonaws.com \
   --set opensearch.index=aws-fluent-bit
 
 curl -sS -u "${ES_DOMAIN_USER}:${ES_DOMAIN_PASSWORD}" \
