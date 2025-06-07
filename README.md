@@ -74,8 +74,7 @@ aws iam create-policy   \
   --policy-document file://fluent-bit-policy_edited.json
 
 # Bind IAM role to the Kubernetes SA
-eksctl create iamserviceaccount --name fluent-bit --namespace kube-system --cluster $CLUSTER_NAME --role-name fluent-bit-role \
-    --attach-policy-arn arn:aws:iam::$ACCOUNT_ID:policy/fluent-bit-policy --approve
+eksctl create iamserviceaccount --name fluent-bit --namespace kube-system --cluster $CLUSTER_NAME --role-name fluent-bit-role --attach-policy-arn arn:aws:iam::$ACCOUNT_ID:policy/fluent-bit-policy --approve
 
 # Confirm that the IAM role's trust policy is configured correctly.
 aws iam get-role --role-name fluent-bit-role --query Role.AssumeRolePolicyDocument
